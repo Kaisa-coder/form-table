@@ -1,32 +1,34 @@
 <template>
-  <TableDate :config="tableConfig" :checkbox="checkbox" />
+  <TableDate :data="tableData" :config="tableConfig" />
 </template>
 
 <script setup>
 import TableDate from "@/packages/tableData/index.vue"
-import { ref } from "vue";
+import { nextTick, onMounted, ref } from "vue";
 // 表格配置
 const tableConfig = ref({
   thead: [
     {
-      label: "Date",
-      props: "date"
+      label: "Abbr",
+      props: "source"
     },
     {
-      label: "Name",
-      props: "name"
+      label: "Notes",
+      props: "picUrl"
     },
     {
-      label: "Address",
-      props: "address"
+      label: "Type",
+      props: "ctime"
     },
     {
       label: "操作"
     },
   ],
-  checkbox: false,
-  index:false
 })
-const checkbox = ref(true)
+const tableData = ([])
+onMounted(() => {
+
+})
+
 </script>
 <style lang="scss"></style>
