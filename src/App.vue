@@ -1,5 +1,5 @@
 <template>
-  <TableDate :config="tableConfig" />
+  <TableDate :config="tableConfig" :checkbox="checkbox" />
 </template>
 
 <script setup>
@@ -22,8 +22,11 @@ const tableConfig = ref({
     },
     {
       label: "操作"
-    }
+    },
   ],
+  checkbox: false,
+  index:false
 })
+const checkbox = ref(true)
 </script>
 <style lang="scss"></style>
