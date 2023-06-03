@@ -10,33 +10,35 @@ const props = defineProps({
   config: {
     type: Object,
     default: () => ({})
-  },
-  buttonConfig: {
-    type: Object,
-    default: () => ({})
   }
 })
 
+// init config
+const initConfig = () => {
+  for (let key in props.config) {
+    if (Object.keys(tableConfig.value).includes(key)) {
+      // tableConfig.value[key] = props.config[key];
+    }
+  }
+  // console.log(firstf)
+}
 
-// watch(props.config,
-//   () => {
-//     initConfig()
-//   },
-//   {
-//     immediate: true,
-//   }
-// )
+watch(props.config,
+  () => {
+    initConfig()
+  },
+  {
+    immediate: true,
+  }
+)
+
 
 const changeForm = () => {
   console.log(form)
 }
 const defaultTime2 = [new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23, 59, 59),] // '12:00:00', '08:00:00'
 
-const btnClick = (content) => {
-  if (content == '查询') {
-    console.log(form)
-  }
-}
+
 </script>
 
 <template>
