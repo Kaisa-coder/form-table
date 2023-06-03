@@ -1,33 +1,52 @@
 <template>
-  <TableDate :data="tableData" :config="tableConfig" />
+  <TableDate :config="tableConfig" />
+  <TableDate :config="tableConfig1" />
 </template>
 
 <script setup>
 import TableDate from "@/packages/tableData/index.vue"
-import { nextTick, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 // 表格配置
 const tableConfig = ref({
   thead: [
     {
-      label: "Abbr",
-      props: "source"
+      label: "Date",
+      props: "date"
     },
     {
-      label: "Notes",
-      props: "picUrl"
+      label: "Name",
+      props: "name"
     },
     {
-      label: "Type",
-      props: "ctime"
+      label: "Address",
+      props: "address"
     },
     {
       label: "操作"
     },
   ],
+  url: '/tableInfo'
 })
-const tableData = ([])
-onMounted(() => {
 
+const tableConfig1 = ref({
+  thead: [
+    {
+      label: "Date",
+      props: "date"
+    },
+    {
+      label: "Name",
+      props: "name"
+    },
+    {
+      label: "Address",
+      props: "address"
+    },
+    {
+      label: "操作"
+    },
+  ],
+  url: '/getStudentInfo'
 })
 
 </script>
