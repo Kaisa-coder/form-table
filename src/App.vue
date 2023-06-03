@@ -1,11 +1,12 @@
 <template>
+  <FilterConditions :config="inputConfig" />
   <TableDate :config="tableConfig" />
-  <TableDate :config="tableConfig1" />
 </template>
 
 <script setup>
 import TableDate from "@/packages/tableData/index.vue"
-import { onMounted, ref } from "vue";
+import FilterConditions from "@/packages/FilterConditions/index.vue"
+import { ref } from "vue";
 // 表格配置
 const tableConfig = ref({
   thead: [
@@ -48,6 +49,11 @@ const tableConfig1 = ref({
   ],
   url: '/getStudentInfo'
 })
+
+// 筛选条件配置
+// const inputConfig = ref({
+
+// })
 
 </script>
 <style lang="scss"></style>
