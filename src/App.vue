@@ -1,5 +1,5 @@
 <template>
-  <FilterConditions :config="inputConfig" :buttonConfig="buttonConfig" />
+  <!-- <FilterConditions :config="inputConfig" :buttonConfig="buttonConfig" /> -->
   <TableDate :config="tableConfig" />
 </template>
 
