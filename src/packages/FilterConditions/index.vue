@@ -59,7 +59,7 @@ const btnClick = (content) => {
           </template>
         </el-row>
       </el-col>
-      <el-col :span="4">
+      <el-col :span="4"></el-col>
         <el-form-item v-for="item in props.buttonConfig">
           <el-button @click="btnClick(item.content)">{{ item.content }}</el-button>
         </el-form-item>
