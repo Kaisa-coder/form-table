@@ -62,7 +62,7 @@ const handleCurrentChange = (val) => {
 const handleSizeChange = (val) => {
   console.log('handleSizeChange', val)
   paginationConfig_pageSize.value = val
-  // getTableList()
+  getTableList()
 }
 </script>
 
@@ -77,12 +77,3 @@ const handleSizeChange = (val) => {
     :page-sizes="[10, 15, 20, 25]" layout="total, sizes, prev, pager, next, jumper" :total="paginationConfig_total"
     @current-change="handleCurrentChange" @size-change="handleSizeChange" />
 </template>
-
-<style lang="scss" scoped>
-// .el-pagination {
-//   display: flex;
-//   justify-content: end;
-//   --el-pagination-button-height: 26px !important;
-//   margin-top: 16px;
-// }
-</style>
