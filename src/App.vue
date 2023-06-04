@@ -1,5 +1,5 @@
 <template>
-  <!-- <FilterConditions :config="inputConfig" :buttonConfig="buttonConfig" /> -->
+  <FilterConditions :config="inputConfig" />
 </template>
 
 <script setup>
@@ -42,8 +42,18 @@ const inputConfig = ref({
   ],
   buttonConfig: [
     {
-      content: "查询"
-    }
+      content: "查询",
+      type: "primary",
+      text: false
+    },
+    {
+      content: "导入",
+      type: "success"
+    },
+    {
+      content: "新增",
+      type: "warning"
+    },
   ]
 })
 

@@ -1,10 +1,15 @@
 <script setup>
-import { reactive, watch } from 'vue'
+import { ref, reactive, watch } from 'vue'
 
-// do not use same name with ref
 const form = reactive({
 
 })
+
+const inputConfig = ref({
+  filters: [],
+  buttonConfig: []
+})
+
 
 const props = defineProps({
   config: {
@@ -16,11 +21,11 @@ const props = defineProps({
 // init config
 const initConfig = () => {
   for (let key in props.config) {
-    if (Object.keys(tableConfig.value).includes(key)) {
-      // tableConfig.value[key] = props.config[key];
+    if (Object.keys(inputConfig.value).includes(key)) {
+      inputConfig.value[key] = props.config[key];
     }
   }
-  // console.log(firstf)
+  console.log(inputConfig.value)
 }
 
 watch(props.config,
@@ -42,11 +47,11 @@ const defaultTime2 = [new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23, 59
 </script>
 
 <template>
-  <el-form inline :model="form" label-width="120px">
+  <el-form inline :model="form" label-width="150">
     <el-row>
       <el-col :span="20">
         <el-row :gutter="0">
-          <template v-for="item in props.config" v-if="props.config.length > 3">
+          <template v-for="item in inputConfig.filters">
             <el-col :span="8">
               <el-form-item :label="item.label">
                 <el-input v-if="item.type == 'text'" v-model="form[item.props]" @change="changeForm"></el-input>
@@ -62,8 +67,8 @@ const defaultTime2 = [new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23, 59
         </el-row>
       </el-col>
       <el-col :span="4">
-        <el-form-item v-for="item in props.buttonConfig">
-          <el-button @click="btnClick(item.content)">{{ item.content }}</el-button>
+        <el-form-item v-for="item in inputConfig.buttonConfig">
+          <el-button :type="item.type" :text="item.text">{{ item.content }}</el-button>
         </el-form-item>
       </el-col>
     </el-row>
